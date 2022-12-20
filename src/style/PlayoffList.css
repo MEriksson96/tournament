@@ -1,0 +1,56 @@
+.playoff__container {
+    width: 25% !important;
+    margin: auto !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-around !important;
+    border: 2px solid black;
+    padding: 1rem;
+    
+}
+
+.title {
+    text-align: center;
+    font-weight: 600;
+    margin: 1rem;
+    text-decoration: underline;
+}
+
+.playoff__container :nth-child(1) {
+    order: 1;
+    color: green;
+}
+.playoff__container :nth-child(2) {
+    order: 3;
+    color: green;
+}
+.playoff__container :nth-child(3) {
+    order: 4;
+    color: green;
+}
+.playoff__container :nth-child(4) {
+    order: 2;
+    color: green;
+}
+.playoff__container :nth-child(5) {
+    order: 5;
+    color: red;
+}
+.playoff__container :nth-child(6) {
+    order: 6;
+    color: red;
+}
+.playoff__container :nth-child(7) {
+    order: 7;
+    color: red;
+}
+.playoff__container :nth-child(8) {
+    order: 6;
+    color: red;
+}
+
+.playoff__item {
+    flex-basis: 50% !important;
+    text-align: center !important;
+    font-weight: 600;
+}

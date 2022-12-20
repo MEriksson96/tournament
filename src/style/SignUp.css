@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    padding: 2rem;
+}
+
+.sign-up__form {
+    width: 45%;
+    margin: auto;
+    border: 4px solid black;
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.btn {
+    width: 100%;
+}
+
+.error__field {
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    font-family: cursive;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+.login__box {
+    width: 45%;
+    border: 4px solid black;
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.login__header {
+    text-align: center;
+}
+
+.log-in-label {
+    font-weight: bold !important;
+    text-align: center;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+  }

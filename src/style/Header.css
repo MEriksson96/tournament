@@ -1,0 +1,4 @@
+.finish__tournament:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}

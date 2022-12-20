@@ -1,0 +1,26 @@
+.nav-text {
+    margin: auto !important;
+}
+
+.row {
+    margin: auto !important;
+    width: 100%;
+}
+
+.edit-form {
+    border: 3px solid black;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 50%;
+    margin-top: 2rem;
+    background: whitesmoke;
+}
+
+.submit__btn {
+    width: 100% !important;
+}
+
+.player-list {
+    display: flex;
+    flex-direction: column;
+}
