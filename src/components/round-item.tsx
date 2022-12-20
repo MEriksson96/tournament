@@ -15,7 +15,7 @@ const RoundListItem = ({ round, index }: Props) => {
   const [rightSideGoals, setRightSideGoals] = useState(0);
   const { rounds } = useRounds();
 
-  const showResultBoard = (round, isPlayed) => {
+  const showResultBoard = (round: string, isPlayed: boolean) => {
     if (isPlayed === true) {
       return;
     }
@@ -24,15 +24,15 @@ const RoundListItem = ({ round, index }: Props) => {
     setRightSideGoals(0);
   };
 
-  const handleLeftSideGoals = (e) => {
+  const handleLeftSideGoals = (e: any) => {
     setLeftSideGoals(e.target.value);
   };
 
-  const handleRightSideGoals = (e) => {
+  const handleRightSideGoals = (e: any) => {
     setRightSideGoals(e.target.value);
   };
 
-  const submitResult = (round, e) => {
+  const submitResult = (round: string, e: any) => {
     e.preventDefault();
     if (
       leftSideGoals > 15 ||

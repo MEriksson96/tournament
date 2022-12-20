@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import usePlayers from "../context/player-context";
+import { apiUrl } from "../data/helper";
 import "../style/EditPlayer.css";
 import EditPlayerForm, { UpdatedPlayer } from "./edit-player-form";
 import PlayerUpdateList from "./player-update-list";
 
-function EditPlayer(props) {
+const EditPlayer = () => {
   const [showForm, setShowForm] = useState(false);
   const [name, setName] = useState("");
   const [team, setTeam] = useState("");
@@ -12,7 +13,7 @@ function EditPlayer(props) {
   const [playerId, setPlayerId] = useState(0);
   const { players } = usePlayers();
 
-  const showEditForm = (player) => {
+  const showEditForm = (player: any) => {
     if (player === null) {
       return;
     }
@@ -23,7 +24,7 @@ function EditPlayer(props) {
     setPlayerId(player.Id);
   };
 
-  const updatePlayer = (values: UpdatedPlayer, e) => {
+  const updatePlayer = (values: UpdatedPlayer, e: any) => {
     e.preventDefault();
     var obj = {
       Id: playerId,
@@ -31,7 +32,7 @@ function EditPlayer(props) {
       PlayerTeam: values.team,
       PlayerIsAdmin: values.isAdmin,
     };
-    fetch(props.apiUrl + "/update", {
+    fetch(apiUrl + "/update", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -41,12 +42,7 @@ function EditPlayer(props) {
         Id: obj.Id,
       }),
     }).then(() => {
-      fetch(props.apiUrl + "/getUsers")
-        .then((res) => res.json())
-        .then((data) => {
-          props.setPlayers(data);
-          setShowForm(false);
-        });
+      setShowForm(false);
     });
   };
 
@@ -75,6 +71,6 @@ function EditPlayer(props) {
       </div>
     </div>
   );
-}
+};
 
 export default EditPlayer;

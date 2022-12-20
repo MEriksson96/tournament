@@ -3,7 +3,7 @@ import useRounds from "../context/rounds-context";
 const UpcomingRounds = () => {
   const { rounds } = useRounds();
   const upcomingRounds = rounds
-    .filter((x) => x.HasBeenPlayed === false)
+    .filter((x: any) => x.HasBeenPlayed === false)
     .slice(0, 2);
 
   return (
@@ -12,7 +12,7 @@ const UpcomingRounds = () => {
       <div className="items">
         {upcomingRounds.length > 0 ? (
           <ul className="item-list">
-            {upcomingRounds.map((round) => (
+            {upcomingRounds.map((round: any) => (
               <li key={round.Id} className="items-list-item">
                 {round.Round}
               </li>

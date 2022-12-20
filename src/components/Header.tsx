@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { apiUrl } from "../data/helper";
 import "../style/Header.css";
 
-function Header(props) {
+const Header = () => {
   const [deleteIsPressed, setDeleteIsPressed] = useState(false);
 
   const hasClickedDelete = () => {
@@ -14,18 +15,10 @@ function Header(props) {
   };
 
   const deleteTournament = () => {
-    fetch(props.apiUrl + "/deleteSchema/num", {
+    fetch(apiUrl + "/deleteSchema/num", {
       method: "DELETE",
     }).then(() => {
-      fetch(props.apiUrl + "/getUsers")
-        .then((res) => res.json())
-        .then((data) => {
-          props.setPlayers(data);
-          props.setHighestScore({});
-          props.setQualifiedPlayers([]);
-          props.setUpcomingRounds([]);
-          setDeleteIsPressed(false);
-        });
+      console.log("deleted");
     });
   };
 
@@ -69,12 +62,12 @@ function Header(props) {
       )}
     </header>
   );
-}
+};
 
 const headerStyle = {
   background: "#333",
   color: "white",
-  textAlign: "center",
+  TextAlign: "center",
   padding: "10px",
 };
 

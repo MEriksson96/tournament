@@ -17,15 +17,15 @@ const EditPlayerForm = ({ name, team, isAdmin, updatePlayer }: Props) => {
   const [updatedName, setName] = useState("");
   const [updatedTeam, setTeam] = useState("");
   const [updatedIsAdmin, setIsAdmin] = useState(false);
-  const handleName = (e) => {
+  const handleName = (e: any) => {
     setName(e.target.value);
   };
 
-  const handleTeam = (e) => {
+  const handleTeam = (e: any) => {
     setTeam(e.target.value);
   };
 
-  const handleAdmin = (e) => {
+  const handleAdmin = (e: any) => {
     setIsAdmin(e.target.checked);
   };
 

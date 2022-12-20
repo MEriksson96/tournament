@@ -1,21 +1,14 @@
-import React, { Component, useEffect } from "react";
-import useHighestScore from "../context/high-score-context";
-import usePlayers from "../context/player-context";
-import useQualifiedPlayers from "../context/qualified-players-context";
-import useRounds from "../context/rounds-context";
+import { apiUrl } from "../data/helper";
 import "../style/PlayerList.css";
-import LederBoard from "./leder-board";
-import UpcomingRounds from "./next-rounds";
 import PlayersList from "./players-lst";
-import QualifiedPlayers from "./qualified-players";
 import Stats from "./tournament-stats";
 
-const PlayerList = (props) => {
+const PlayerList = () => {
   const handleDelete = (name: string) => {
-    fetch(props.apiUrl + "/" + name, {
+    fetch(apiUrl + "/" + name, {
       method: "DELETE",
     }).then(() => {
-      props.fetchPlayers();
+      console.log("deleted");
     });
   };
 

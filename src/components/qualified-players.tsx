@@ -9,7 +9,7 @@ const QualifiedPlayers = () => {
       <h6 className="playoffs-text">Klara för A-slutspel</h6>
       <div className="items">
         <ul className="item-list">
-          {qualifiedPlayers.map((player) => (
+          {qualifiedPlayers.map((player: any) => (
             <li key={player.Id} className="items-list-item">
               {player.PlayerTeam} <strong>{player.Points}P</strong>
             </li>

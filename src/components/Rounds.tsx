@@ -10,7 +10,7 @@ const Rounds = () => {
   const { rounds } = useRounds();
 
   useEffect(() => {
-    if (rounds.every((x) => x.HasBeenPlayed)) {
+    if (rounds.every((x: any) => x.HasBeenPlayed)) {
       setShowPlayoffs(true);
     } else {
       setShowPlayoffs(false);
@@ -34,7 +34,7 @@ const Rounds = () => {
       {showPlayoffs === true ? <PlayoffList /> : ""}
 
       <div className="container-div">
-        {rounds.map((rnd, index) => (
+        {rounds.map((rnd: any, index: number) => (
           <RoundListItem round={rnd} index={index} />
         ))}
       </div>

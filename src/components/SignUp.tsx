@@ -1,30 +1,30 @@
 import React, { useState } from "react";
 import "../style/SignUp.css";
-import { Link } from "react-router-dom";
 import { apiUrl } from "../data/helper";
+import { Link } from "react-router-dom";
 
 function SignUp() {
   const [name, setName] = useState("");
   const [team, setTeam] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
-  const [errorMessage, setErrorMessage] = useState();
+  const [errorMessage, setErrorMessage] = useState("");
   const [showError, setShowError] = useState(false);
-  const [successMessage, setSuccessMessage] = useState();
+  const [successMessage, setSuccessMessage] = useState("");
   const [showsuccess, setShowSuccess] = useState(false);
 
-  const handleName = (e) => {
+  const handleName = (e: any) => {
     setName(e.target.value);
   };
 
-  const handleTeam = (e) => {
+  const handleTeam = (e: any) => {
     setTeam(e.target.value);
   };
 
-  const handleAdmin = (e) => {
+  const handleAdmin = (e: any) => {
     setIsAdmin(e.target.checked);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     if (name === "" || team === "" || (name === "" && team === "")) {
       e.preventDefault();
       setShowError(true);
@@ -109,7 +109,7 @@ function SignUp() {
             <input
               type="checkbox"
               className="form-check-input"
-              value={isAdmin}
+              checked={isAdmin}
               onChange={handleAdmin}
             />
             <label className="form-check-label">Admin</label>
@@ -160,7 +160,7 @@ function SignUp() {
 const headerStyle = {
   background: "#333",
   color: "white",
-  textAlign: "center",
+  TextAlign: "center",
   padding: "10px",
   height: "7rem",
   display: "flex",
@@ -171,7 +171,7 @@ const headerStyle = {
 const footerStyle = {
   background: "lightslategrey",
   color: "white",
-  textAlign: "center",
+  TextAlign: "center",
   padding: "10px",
   height: "7rem",
   display: "flex",

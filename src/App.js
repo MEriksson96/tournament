@@ -1,8 +1,7 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import PlayerList from "./components/PlayerList";
 import SignUp from "./components/SignUp";
-import RoundList from "./components/RoundList";
 import EditPlayer from "./components/EditPlayer";
 import Header from "./components/Header";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -11,6 +10,7 @@ import { QualifiedPlayersContextProvider } from "./context/qualified-players-con
 import { HighScoreContextProvider } from "./context/high-score-context";
 import { RoundsContextProvider } from "./context/rounds-context";
 import Rounds from "./components/Rounds";
+import { PlayOffContextProvider } from "./context/playoffs-context";
 
 function App() {
   //componentDidMount och de andra fungerar inte i en function komponent, då får man använda useEffect som körs när komponenten renderas.
@@ -62,46 +62,48 @@ function App() {
       <QualifiedPlayersContextProvider>
         <HighScoreContextProvider>
           <RoundsContextProvider>
-            <Router>
-              <Route exact path="/">
-                <SignUp apiUrl={apiUrl} />
-              </Route>
+            <PlayOffContextProvider>
+              <Router>
+                <Route exact path="/">
+                  <SignUp apiUrl={apiUrl} />
+                </Route>
 
-              <Route path="/home">
-                <Header
-                  apiUrl={apiUrl}
-                  setPlayers={setPlayers}
-                  setHighestScore={setHighestScore}
-                  setQualifiedPlayers={setQualifiedPlayers}
-                  setUpcomingRounds={setUpcomingRounds}
-                />
-                <PlayerList />
-              </Route>
-              <Route path="/games">
-                <Header
-                  apiUrl={apiUrl}
-                  setPlayers={setPlayers}
-                  setHighestScore={setHighestScore}
-                  setQualifiedPlayers={setQualifiedPlayers}
-                  setUpcomingRounds={setUpcomingRounds}
-                />
-                <Rounds />
-              </Route>
-              <Route path="/update">
-                <Header
-                  apiUrl={apiUrl}
-                  setPlayers={setPlayers}
-                  setHighestScore={setHighestScore}
-                  setQualifiedPlayers={setQualifiedPlayers}
-                  setUpcomingRounds={setUpcomingRounds}
-                />
-                <EditPlayer
-                  players={players}
-                  apiUrl={apiUrl}
-                  setPlayers={setPlayers}
-                />
-              </Route>
-            </Router>
+                <Route path="/home">
+                  <Header
+                    apiUrl={apiUrl}
+                    setPlayers={setPlayers}
+                    setHighestScore={setHighestScore}
+                    setQualifiedPlayers={setQualifiedPlayers}
+                    setUpcomingRounds={setUpcomingRounds}
+                  />
+                  <PlayerList />
+                </Route>
+                <Route path="/games">
+                  <Header
+                    apiUrl={apiUrl}
+                    setPlayers={setPlayers}
+                    setHighestScore={setHighestScore}
+                    setQualifiedPlayers={setQualifiedPlayers}
+                    setUpcomingRounds={setUpcomingRounds}
+                  />
+                  <Rounds />
+                </Route>
+                <Route path="/update">
+                  <Header
+                    apiUrl={apiUrl}
+                    setPlayers={setPlayers}
+                    setHighestScore={setHighestScore}
+                    setQualifiedPlayers={setQualifiedPlayers}
+                    setUpcomingRounds={setUpcomingRounds}
+                  />
+                  <EditPlayer
+                    players={players}
+                    apiUrl={apiUrl}
+                    setPlayers={setPlayers}
+                  />
+                </Route>
+              </Router>
+            </PlayOffContextProvider>
           </RoundsContextProvider>
         </HighScoreContextProvider>
       </QualifiedPlayersContextProvider>
