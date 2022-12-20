@@ -1,3 +1,4 @@
+import React from "react";
 import LederBoard from "./leder-board";
 import UpcomingRounds from "./next-rounds";
 import QualifiedPlayers from "./qualified-players";
